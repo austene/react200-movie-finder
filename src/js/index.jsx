@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import promiseMiddleware from 'redux-promise-middleware';
-import reducers from './reducers';
+// import { createStore, applyMiddleware, compose } from 'redux';
+// import promiseMiddleware from 'redux-promise-middleware';
+// import reducers from './reducers';
 import App from './app';
 import store from './rootStore';
 
@@ -13,6 +13,7 @@ import store from './rootStore';
 // const store = createStore(reducers, composeEnhancers(applyMiddleware(promiseMiddleware()))
 // );
 /* eslint-enable */
+
 
 
 render(

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class MovieDetailContainer extends React.Component {
+import MovieDetails from '../components/MovieDetails/MovieDetails';
+
+class MovieDetailContainer extends Component {
   constructor(props) {
     super(props);
   }
@@ -8,11 +10,10 @@ class MovieDetailContainer extends React.Component {
   render() {
     return (
       <div>
-        <h1>Movie Detail Container</h1>
-
+        <MovieDetails />
         <p>Viewing movie {this.props.match.params.id}</p>
       </div>
-    )
+    );
   }
 }
 

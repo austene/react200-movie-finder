@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class MovieSearchContainer extends React.Component {
+import Searchbar from '../components/Searchbar/Searchbar';
+import ResultsDisplay from '../components/ResultsDisplay/ResultsDisplay';
+
+class MovieSearchContainer extends Component {
   constructor(props) {
     super(props);
   }
@@ -8,9 +11,13 @@ class MovieSearchContainer extends React.Component {
   render() {
     return (
       <div>
-        <h1>Movie Search Container</h1>
+        {/* <h3>Movie Search Container</h3> */}
+        <Searchbar />
+        <ResultsDisplay
+          // resultsMovies={ this.state.resultsMovies }
+        />
       </div>
-    )
+    );
   }
 }
 
