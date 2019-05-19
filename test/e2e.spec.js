@@ -23,6 +23,7 @@ const url = 'http://localhost:8888';
 
 
 describe('express', () => {
+  this.timeout(10000);
   let httpServer = null;
   let pageObject = null;
 
