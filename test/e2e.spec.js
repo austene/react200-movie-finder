@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, '/../dist')));
 const url = 'http://localhost:8888';
 
 
-describe('express', () => {
+describe('express', function () {
   this.timeout(10000);
   let httpServer = null;
   let pageObject = null;
