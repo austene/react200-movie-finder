@@ -1,7 +1,6 @@
 /* global define, it, describe, beforeEach, document */
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Router } from 'react-router-dom';
 import App from '../src/js/app';
 import { fetchMovieSearch } from '../src/js/containers/MovieSearch/moviesearchActions';
 
