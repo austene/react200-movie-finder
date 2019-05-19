@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import searchbarReducer from './components/Searchbar/searchbarReducer';
+import moviesearchReducer from './containers/MovieSearch/moviesearchReducer';
 
 const rootReducer = combineReducers({
-  searchbar: searchbarReducer,
+  moviesearch: moviesearchReducer,
 });
 
 export default rootReducer;
