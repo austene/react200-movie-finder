@@ -19,7 +19,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, '/../public')));
 app.use(express.static(path.join(__dirname, '/../dist')));
 
-// app.listen(8888);
+app.listen(8888);
 
 const url = 'http://localhost:8888';
 
@@ -34,13 +34,13 @@ describe('express', function () {
   //   nightmare = new Nightmare();
   // });
 
-  before((done) => {
-    httpServer = app.listen(8888);
-    done();
-  });
+  // before((done) => {
+  //   httpServer = app.listen(8888);
+  //   done();
+  // });
 
-  beforeEach(() => {
-    pageObject = nightmare.goto(url);
+  before(() => {
+    pageObject = nightmare().goto(url);
   });
 
   after((done) => {
