@@ -10,7 +10,7 @@ const Nightmare = require('nightmare');
 const expect = require('chai').expect;
 const axios = require('axios');
 
-let nightmare;
+// let nightmare;
 
 const app = express();
 app.use(express.static(path.join(__dirname, '/../public')));
@@ -20,16 +20,16 @@ app.use(express.static(path.join(__dirname, '/../dist')));
 
 const url = 'http://localhost:8888';
 
-// const nightmare = new Nightmare();
+const nightmare = new Nightmare();
 
 describe('express', function () {
   this.timeout(12000);
   let httpServer = null;
   let pageObject = null;
 
-  beforeEach(() => {
-    nightmare = new Nightmare();
-  });
+  // beforeEach(() => {
+  //   nightmare = new Nightmare();
+  // });
 
   before((done) => {
     httpServer = app.listen(8888);
@@ -48,18 +48,19 @@ describe('express', function () {
   it('should have the correct page title', () => {
     return pageObject
     .evaluate(() => document.querySelector('h1').innerText)
-    .end()
     .then(text => expect(text).to.equal('Movie Finder'));
   });
 
   it('should contain an <input> element with the id of "searchbar"', () => {
     return pageObject
+    .wait()
     .evaluate(() => document.querySelector('input[id=searchbar]').innerText)
-    .then(input => expect(input).to.not.be.null);
+    .then(input => expect(input).to.exist);
   });
 
   it('should contain a <button> element with an id of "searchbar-btn"', () => {
     return pageObject
+    .wait()
     .evaluate(() => document.querySelector('#searchbar-btn').innerText)
     .then(button => expect(button).to.exist);
   });
