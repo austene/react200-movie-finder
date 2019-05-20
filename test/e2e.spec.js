@@ -20,16 +20,16 @@ app.use(express.static(path.join(__dirname, '/../dist')));
 
 const url = 'http://localhost:8888';
 
-const nightmare = new Nightmare();
+// const nightmare = new Nightmare();
 
 describe('express', function () {
   this.timeout(12000);
   let httpServer = null;
   let pageObject = null;
 
-  // beforeEach(() => {
-  //   nightmare = new Nightmare();
-  // });
+  beforeEach(() => {
+    nightmare = new Nightmare();
+  });
 
   before((done) => {
     httpServer = app.listen(8888);
