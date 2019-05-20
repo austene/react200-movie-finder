@@ -48,27 +48,6 @@ describe('express', function () {
     done();
   });
 
-  it('should have the correct page title', () => {
-    return pageObject
-    .evaluate(() => document.querySelector('body').innerText)
-    .then(text => expect(text).to.contain('Movie Finder'));
-  });
-
-  it('should contain an <input> element with the id of "searchbar"', () => {
-    return pageObject
-    .wait()
-    .evaluate(() => document.querySelector('input[id=searchbar]').innerText)
-    .then(input => expect(input).to.exist);
-  });
-
-  it('should contain a <button> element with an id of "searchbar-btn"', () => {
-    return pageObject
-    .wait()
-    .evaluate(() => document.querySelector('#searchbar-btn').innerText)
-    .then(button => expect(button).to.exist);
-  });
-
-
   it('returns the correct status code', () => axios.get(url)
     .then(response => expect(response.status === 200)));
 });
