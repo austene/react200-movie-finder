@@ -10,7 +10,7 @@ const path = require('path');
 const Nightmare = require('nightmare');
 const expect = require('chai').expect;
 const axios = require('axios');
-const Actions = require('nightmare-react-utils').Actions;
+const Actions = require("nightmare-react-utils").Actions;
 
 Nightmare.action(...Actions);
 // let nightmare;
@@ -19,14 +19,14 @@ const app = express();
 app.use(express.static(path.join(__dirname, '/../public')));
 app.use(express.static(path.join(__dirname, '/../dist')));
 
-app.listen(8888);
+// app.listen(8888);
 
 const url = 'http://localhost:8888';
 
 const nightmare = new Nightmare();
 
 describe('express', function () {
-  this.timeout(20000);
+  this.timeout(12000);
   let httpServer = null;
   let pageObject = null;
 
@@ -34,13 +34,13 @@ describe('express', function () {
   //   nightmare = new Nightmare();
   // });
 
-  // before((done) => {
-  //   httpServer = app.listen(8888);
-  //   done();
-  // });
+  before((done) => {
+    httpServer = app.listen(8888);
+    done();
+  });
 
-  before(() => {
-    pageObject = nightmare().goto(url);
+  beforeEach(() => {
+    pageObject = nightmare.goto(url);
   });
 
   after((done) => {
@@ -50,8 +50,8 @@ describe('express', function () {
 
   it('should have the correct page title', () => {
     return pageObject
-    .evaluate(() => document.querySelector('h1').innerText)
-    .then(text => expect(text).to.equal('Movie Finder'));
+    .evaluate(() => document.querySelector('body').innerText)
+    .then(text => expect(text).to.contain('Movie Finder'));
   });
 
   it('should contain an <input> element with the id of "searchbar"', () => {
