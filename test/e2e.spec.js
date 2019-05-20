@@ -1,6 +1,7 @@
 /* global define, it, describe, beforeEach, document */
 import React from 'react';
 import { shallow } from 'enzyme';
+// import Adapter from 'enzyme-adapter-react-16';
 import App from '../src/js/app';
 import { fetchMovieSearch } from '../src/js/containers/MovieSearch/moviesearchActions';
 
@@ -9,7 +10,9 @@ const path = require('path');
 const Nightmare = require('nightmare');
 const expect = require('chai').expect;
 const axios = require('axios');
+const Actions = require('nightmare-react-utils').Actions;
 
+Nightmare.action(...Actions);
 // let nightmare;
 
 const app = express();
